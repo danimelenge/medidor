@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @State private var celsius: Double = 0
+
+       var body: some View {
+           VStack {
+               Slider(value: $celsius, in: -100...100)
+               Text("\(celsius, specifier: "%.1f") Celsius is \(celsius * 9 / 5 + 32, specifier: "%.1f") Fahrenheit")
+           }
+       }
+   }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
